@@ -1,0 +1,15 @@
+php_value upload_max_filesize 1200M
+php_value post_max_size 1300M
+php_value memory_limit 1500M
+
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    RewriteBase /jamjoompharma/
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /jamjoompharma/index.php [L]
+    </IfModule>
+    
